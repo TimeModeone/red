@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+<meta charset="UTF-8">
+
+<title> 魔丸or灵珠 </title>
+<link rel="icon" type="image/png" href="合体.png">  
+<style>
+    body {  
+        background-image: url('合体.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size:cover;
+        background-position:center -500px;
+       }
+    .答题界面{
+        margin:auto;
+        width:60%;
+        text-align:center;
+        background-color:rgb(255, 255, 255,0.5);
+        box-shadow:0 25px 45px rgba(0,0,0,0.6);
+        backdrop-filter:blur(4px);
+        border-radius:10px;
+        h1{
+            font-size:60px;
+            font-family:'华文行楷';
+            margin-top:20px;
+        }
+    }
+    .题目{
+        text-align: left;
+        margin: 20px;
+        padding-left:15%;
+        p{
+            font-size:20px;
+            font-family:'微软雅黑';
+            font-weight:bold;
+        }
+        b{
+            font-family:'华文行楷';
+            font-size:22px;
+        }
+        input{
+            width:25px;
+            height:25px;
+            
+        }
+    }
+    .功能键{
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+        button{
+            color:white;
+            border-radius:10px;
+            text-align: center;
+            font-size: 28px; 
+        }
+    }
+    .图片{  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>  
+ </head>
+ <body>
+    <script>
+        var answers = {}; 
+        function saveAnswer(questionNum, answer)
+            {
+            answers[questionNum] = answer;
+            }// 保存考试答案
+                function submitAnswers() 
+                {               
+                var score = 0;
+                var correctAnswers = {
+                    1: 'A', 2: 'A', 3: 'A',4:'A',5: 'A', 
+                    6: 'A', 7: 'A',8:'A',9: 'A', 10: 'A'
+                };// 提交考试答案
+                for (var i = 1; i <= 10; i++)
+                {
+                if (answers[i] === correctAnswers[i])
+                {
+                score++;
+                }
+                } // 检查单选题答案是否正确
+                if ((score)>=7){
+                    document.getElementsByName("请选择你的英雄")[0].innerHTML = "灵珠说是";
+                    document.getElementById("灵珠").style.display="block";
+                    document.getElementById("魔丸").style.display="none";
+                    document.getElementById("合体").style.display="none";
+                }
+                else if((score)<=3){
+                    document.getElementsByName("请选择你的英雄")[0].innerHTML = "魔丸说是";
+                    document.getElementById("灵珠").style.display="none";
+                    document.getElementById("魔丸").style.display="block";
+                    document.getElementById("合体").style.display="none";
+                }
+                else{
+                    document.getElementsByName("请选择你的英雄")[0].innerHTML = "你怎么一半熬丙一半哪吒的";
+                    document.getElementById("灵珠").style.display="none";
+                    document.getElementById("魔丸").style.display="none";
+                    document.getElementById("合体").style.display="block";
+                }
+                }
+                function refresh(){
+                    location.reload();
+                }
+        </script>
+    <div class="背景界面">
+        <div class="答题界面">
+            <h1>魔丸OR灵珠</h1>
+            <div class="题目">
+                <p>1. 面对一个众人畏惧的古老规则，你的第一想法是：</p>
+                <b>我寻思这边能行.　</b>
+                <input type="radio"name="问题1"value="A"onchange="saveAnswer(1,'A')">存在即合理，它或许在保护我们不知道的东西。
+                <br><b>显然是这边更厉害.</b>
+                <input type="radio"name="问题1"value="B"onchange="saveAnswer(1,'B')">真想试试打破它，看看会发生什么。
+                <br><br>
+                 <p>2. 当你看到有人被众人孤立、欺辱时，你通常会：</p>
+                <b>我寻思这边能行.　</b>
+                <input type="radio"name="问题2"value="A"onchange="saveAnswer(2,'A')">感到同情，并思考如何帮助或安慰他/她。
+                <br><b>显然是这边更厉害.</b>
+                <input type="radio"name="问题2"value="B"onchange="saveAnswer(2,'B')">觉得他/她可能有问题，但更厌恶那群跟风欺辱的人。
+                <br><br>
+                 <p>3. 你更相信哪种力量能改变世界？</p>
+                 <b>我寻思这边能行.　</b>
+                <input type="radio"name="问题3"value="A"onchange="saveAnswer(3,'A')">爱与教化，水滴石穿。
+                <br><b>显然是这边更厉害.</b>
+                <input type="radio"name="问题3"value="B"onchange="saveAnswer(3,'B')">颠覆与重建，不破不立。
+                <br><br>
+                 <p>4. 对于自己天生的身份或标签（如出身、故乡），你如何看待？</p>
+                 <b>我寻思这边能行.　</b>
+                <input type="radio"name="问题4"value="A"onchange="saveAnswer(4,'A')">存在即合理，是责任也是养分，我愿发扬其美好的一面。
+                <br><b>显然是这边更厉害.</b>
+                <input type="radio"name="问题4"value="B"onchange="saveAnswer(4,'B')"> 是束缚也是起点，我命由我不由天。
+                 <br><br>
+                 <p>5. 当你感到愤怒或被误解时，你更倾向于：</p>
+                 <b>我寻思这边能行.　</b>
+                <input type="radio"name="问题5"value="A"onchange="saveAnswer(5,'A')">暂时离开，独自消化，避免伤害他人。
+                <br><b>显然是这边更厉害.</b>
+                <input type="radio"name="问题5"value="B"onchange="saveAnswer(5,'B')">让情绪爆发出来，哪怕场面难看，但求一时痛快。
+                 <br><br>
+                 <p>6. 你如何看待“朋友”？</p>
+                 <b>我寻思这边能行.　</b>
+                <input type="radio"name="问题6"value="A"onchange="saveAnswer(6,'A')">是彼此扶持、共同成长的伙伴，贵在知心。
+                <br><b>显然是这边更厉害.</b>
+                <input type="radio"name="问题6"value="B"onchange="saveAnswer(6,'B')">是能一起疯闹、彼此仗义的人，贵在真实。
+                 <br><br>
+                 <p>7. 面对一项艰巨的、可能牺牲自己利益的任务，你会：</p>
+                 <b>我寻思这边能行.　</b>
+                <input type="radio"name="问题7"value="A"onchange="saveAnswer(7,'A')">如果对大多数人有益，我愿意承担。
+                <br><b>显然是这边更厉害.</b>
+                <input type="radio"name="问题7"value="B"onchange="saveAnswer(7,'B')">除非是我自己在乎的人或事，否则凭什么要我牺牲？
+                 <br><br>
+                 <p>8. 你内心深处最大的渴望是：</p>
+                 <b>我寻思这边能行.　</b>
+                <input type="radio"name="问题8"value="A"onchange="saveAnswer(8,'A')">得到广泛的认同、喜爱与尊敬。
+                <br><b>显然是这边更厉害.</b>
+                <input type="radio"name="问题8"value="B"onchange="saveAnswer(8,'B')">获得极致的自由，不受任何约束。
+                 <br><br>
+                 <p>9. 你的力量更常来源于：</p>
+                 <b>我寻思这边能行.　</b>
+                <input type="radio"name="问题9"value="A"onchange="saveAnswer(9,'A')">外界的信任、期待和赋予的责任。
+                <br><b>显然是这边更厉害.</b>
+                <input type="radio"name="问题9"value="B"onchange="saveAnswer(9,'B')">内心的不服、不甘和想要证明自己的冲动。
+                 <br><br>
+                 <p>10. 如果用一种自然事物比喻你的内心，它更接近：</p>
+                 <b>我寻思这边能行.　</b>
+                <input type="radio"name="问题10"value="A"onchange="saveAnswer(10,'A')">深海：表面平静，内在包容深厚，蕴含生命。
+                <br><b>显然是这边更厉害.</b>
+                <input type="radio"name="问题10"value="B"onchange="saveAnswer(10,'B')">岩浆：地下涌动，炽热滚烫，等待喷发重塑大地。
+            </div>
+                 <br><br>
+            <div class="功能键">     
+                 <button type="button" style="background-color:blue" onclick="submitAnswers()">接受</button>
+                 <button type="button" style="background-color:red"  onclick="refresh()">我命由我不由天</button>
+
+            </div>
+                <br><hr><br>
+                <p name="请选择你的英雄"></p>
+            
+            <div class="图片">   
+                <img id="灵珠" style="display:none" width="800px"  src="灵珠.png">
+                <img id="魔丸" style="display:none" width="800px"  src="魔丸.png">
+                <img id="合体" style="display:none" width="800px"  src="合体.png">
+            </div>
+        </div>
+    </div>
+ </body>       
+</html>
