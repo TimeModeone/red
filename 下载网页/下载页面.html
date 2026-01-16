@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>下载页面</title>
+        <link rel="icon" type="x-icon" href="爱心.ico">
+        <style>
+        body {
+        background-image: url('智斗.png');
+        background-size:cover;
+        background-attachment: fixed;
+        background-position:center;
+        }
+        .开幕{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color:hotpink;
+            font-size:40px;
+            animation:shine 2.4s infinite;
+        }
+        .下载链接{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            font-size:25px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+        }
+        a {
+            color:hotpink;
+            text-decoration: none;
+        }
+        a:hover {
+            color:deeppink;
+            text-decoration: none;
+            animation:swing 1s infinite; 
+        }
+             @keyframes shine {
+            0%,100% {
+                color:aliceblue;
+                text-shadow: 0 0 10px hotpink, 0 0 10px hotpink;}
+            50% {
+                text-shadow: 0 0 10px hotpink, 0 0 40px hotpink;}
+            }
+            @keyframes swing {
+                20%{
+                    transform: rotate(15deg);
+                }40%{    
+                    transform: rotate(-15deg);
+                }60%{
+                    transform: rotate(5deg);
+                }80%{
+                    transform: rotate(-5deg);
+                }100%{
+                    transform: rotate(0deg);
+                }    
+                }
+        </style>
+    </head>
+    <body>
+      <div class="开幕">
+        <p>点击左下角,一口气看到大结局</p>
+        <p style="font-size:30px">催眠APP</p>  
+        <p style="font-size:25px">可以让人听令于你</p>
+        <p style="font-size:5px">前提是对方愿意被你催眠就是了😉</p>
+      </div>
+      <div class="下载链接">
+        <a href="Hypnosis.apk" download>点我获得同款力量</a>
+      </div>
+    </body>
+</html>
